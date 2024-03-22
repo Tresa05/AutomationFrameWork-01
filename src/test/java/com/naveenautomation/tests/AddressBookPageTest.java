@@ -10,7 +10,7 @@ import com.naveenautomation.pages.AccountLoginPage;
 import com.naveenautomation.pages.AddAddressPage;
 import com.naveenautomation.pages.AddressBookPage;
 import com.naveenautomation.pages.MyAccountPage;
-import com.naveenautomation.utility.Utililty;
+import com.naveenautomation.utility.Utility;
 
 
 public class AddressBookPageTest extends TestBase {
@@ -30,9 +30,9 @@ public class AddressBookPageTest extends TestBase {
 		myAccountPage = page.submitLogin("tresamariya25@gmail.com", "REENA25");
 		addressBookPage = myAccountPage.clickSideNavMenuItem2("Address Book");
 		addAddressPage = addressBookPage.clickNewAddressBtn();
-		addressBookPage = addAddressPage.SubmitAddress(Utililty.generateRandomString(10),
-				Utililty.generateRandomString(10), Utililty.generateRandomString(10), Utililty.generateRandomString(8),
-				Utililty.generateRandomString(6), "L6Z3Y6", "Canada", "Ontario");
+		addressBookPage = addAddressPage.SubmitAddress(Utility.generateRandomString(10),
+				Utility.generateRandomString(10), Utility.generateRandomString(10), Utility.generateRandomString(8),
+				Utility.generateRandomString(6), "L6Z3Y6", "Canada", "Ontario");
 		String bannerText = addressBookPage.getBannerText();
 		Assert.assertEquals(bannerText, "Your address has been successfully added");
 	}

@@ -8,10 +8,11 @@ import org.testng.annotations.Test;
 import com.naveenautomation.TestBase.TestBase;
 import com.naveenautomation.pages.AccountLoginPage;
 import com.naveenautomation.pages.ChangePwdPage;
+import com.naveenautomation.pages.EditAffiliateInfoPage;
 import com.naveenautomation.pages.EditYourAccountInfoPage;
 import com.naveenautomation.pages.MyAccountPage;
 import com.naveenautomation.pages.NewsLetterPage;
-import com.naveenautomation.utility.Utililty;
+import com.naveenautomation.utility.Utility;
 
 public class MyAccountPageTest extends TestBase {
 
@@ -20,6 +21,7 @@ public class MyAccountPageTest extends TestBase {
 	EditYourAccountInfoPage editYourAccountInfoPage;
 	NewsLetterPage newsLetterPage;
 	ChangePwdPage changePwdPage;
+	EditAffiliateInfoPage editAffiliateInfoPage;
 
 	@BeforeMethod
 	public void launchBrowser() {
@@ -42,8 +44,8 @@ public class MyAccountPageTest extends TestBase {
 		// Click editInfo
 		editYourAccountInfoPage = myAccountPage.clickEditYourAccountInfoBtn();
 		// Updating Info
-		myAccountPage = editYourAccountInfoPage.submitEditInfo(Utililty.generateRandomString(8),
-				Utililty.generateRandomString(8), Utililty.generateRandomEmail(), "6588789020");
+		myAccountPage = editYourAccountInfoPage.submitEditInfo(Utility.generateRandomString(8),
+				Utility.generateRandomString(8), Utility.generateRandomEmail(), "6588789020");
 
 		String editInfoAlertMessage = myAccountPage.getEditInfoSuccessAlertText();
 
@@ -56,7 +58,7 @@ public class MyAccountPageTest extends TestBase {
 		newsLetterPage = myAccountPage.clickSideNavMenuItem("NewsLetter");
 		newsLetterPage.newsLetterSubscribed();
 		String newsLetterAlert = myAccountPage.getNewsLetterSuccessAlertText();
-		Assert.assertEquals(" Success: Your newsletter subscription has been successfully updated!", newsLetterAlert);// need
+		Assert.assertEquals("Success: Your newsletter subscription has been successfully updated!", newsLetterAlert);// need
 																														// to
 																														// work
 	}
@@ -70,6 +72,17 @@ public class MyAccountPageTest extends TestBase {
 		Assert.assertEquals("Success: Your password has been successfully updated.", pwdAlertMessage);
 
 	}
+	
+	@Test
+	public void validateUserCanEditAffiliateInformation() {
+		myAccountPage = page.submitLogin("tresamariya25@gmail.com", "REENA25");
+		editAffiliateInfoPage = myAccountPage.clickEditAffiliateInfoBtn();
+		editAffiliateInfoPage.submitAffiliateInformation(Utility.generateRandomString(7),
+				Utility.generateRandomString(6), Utility.generateRandomString(5), Utility.generateRandomString(8));
+		String editAffiliateInfoAlert = myAccountPage.getEditAffiliateInfosuccessBanner();
+		Assert.assertEquals(editAffiliateInfoAlert, "Success: Your account has been successfully updated.");
+	}
+
 
 	@AfterMethod
 	public void closeBrowser() {

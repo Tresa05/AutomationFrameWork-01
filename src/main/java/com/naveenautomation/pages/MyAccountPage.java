@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.naveenautomation.TestBase.TestBase;
+import com.naveenautomation.utility.Utility;
 
 public class MyAccountPage extends TestBase {
 
@@ -61,6 +62,13 @@ public class MyAccountPage extends TestBase {
 
 	@FindBy(xpath = "//a[text()='Your Transactions']")
 	WebElement transactionBtn;
+	
+	@FindBy(css = "div.alert")
+	WebElement editAffiliateInfosuccessBanner;
+	
+	@FindBy(css = "#content>ul:nth-of-type(3) a")
+	WebElement editAffiliateInfoBtn;
+
 
 	// Flow 1 Methods
 	public String getMyAccountText() {
@@ -203,5 +211,57 @@ public class MyAccountPage extends TestBase {
 		transactionBtn.click();
 		return new YourTransactionPage();
 	}
+	
+	public String getEditAffiliateInfosuccessBanner() {
+		return Utility.getTextFromWebelement(editAffiliateInfosuccessBanner);
+	}
+
+	public EditAffiliateInfoPage clickEditAffiliateInfoBtn() {
+		Utility.clickOnElement(editAffiliateInfoBtn);
+		return new EditAffiliateInfoPage();
+	}
+	
+	public PasswordPage clickSideNavMenuItem11(String item) {
+		for (int i = 0; i < sideNavWebelementList.size(); i++) {
+			if (sideNavWebelementList.get(i).getText().equalsIgnoreCase(item)) {
+				sideNavWebelementList.get(i).click();
+				break;
+			}
+		}
+		return new PasswordPage();
+	}
+	
+	// Transactions
+		public TransactionsPage clickSideNavMenuItem8(String item) {
+			for (int i = 0; i < sideNavWebelementList.size(); i++) {
+				if (sideNavWebelementList.get(i).getText().equalsIgnoreCase(item)) {
+					sideNavWebelementList.get(i).click();
+					break;
+				}
+			}
+			return new TransactionsPage();
+		}
+		
+		public RewardPointsPage clickSideNavMenuItem9(String item) {
+			for (int i = 0; i < sideNavWebelementList.size(); i++) {
+				if (sideNavWebelementList.get(i).getText().equalsIgnoreCase(item)) {
+					sideNavWebelementList.get(i).click();
+					break;
+				}
+			}
+			return new RewardPointsPage();
+		}
+		
+		public AccountLogoutPage clickSideNavMenuItem10(String item) {
+			for (int i = 0; i < sideNavWebelementList.size(); i++) {
+				if (sideNavWebelementList.get(i).getText().equalsIgnoreCase(item)) {
+					sideNavWebelementList.get(i).click();
+					break;
+				}
+			}
+			return new AccountLogoutPage();
+		}
+
+	
 
 }

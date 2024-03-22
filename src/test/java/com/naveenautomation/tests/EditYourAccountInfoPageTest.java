@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import com.naveenautomation.TestBase.TestBase;
 import com.naveenautomation.pages.EditYourAccountInfoPage;
-import com.naveenautomation.utility.Utililty;
+import com.naveenautomation.utility.Utility;
 
 public class EditYourAccountInfoPageTest extends TestBase {
 
@@ -18,8 +18,8 @@ public class EditYourAccountInfoPageTest extends TestBase {
 	@Test
 	public void validateEditInfo() {
 		EditYourAccountInfoPage editInfo = new EditYourAccountInfoPage();
-		editInfo.submitEditInfo(Utililty.generateRandomString(8), Utililty.generateRandomString(8),
-				Utililty.generateRandomEmail(), "6588789020");
+		editInfo.submitEditInfo(Utility.generateRandomString(8), Utility.generateRandomString(8),
+				Utility.generateRandomEmail(), "6588789020");
 	}
 
 	@AfterMethod

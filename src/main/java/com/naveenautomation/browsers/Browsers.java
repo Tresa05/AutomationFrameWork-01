@@ -1,7 +1,7 @@
 package com.naveenautomation.browsers;
 
 public enum Browsers {
-	CHROME("Google Chrome"), EDGE("MicrosoftvEdge"), FIREFOX("MozillaFireFox");
+	CHROME("Google Chrome"), EDGE("MicrosoftEdge"), FIREFOX("MozillaFireFox");
 
 	public String browserName;
 

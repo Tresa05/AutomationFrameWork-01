@@ -3,7 +3,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.naveenautomation.utility.Utililty;
+import com.naveenautomation.utility.Utility;
 
 public class CustomListener implements ITestListener {
 
@@ -17,7 +17,7 @@ public class CustomListener implements ITestListener {
 
 	public void onTestFailure(ITestResult result) {
 		System.out.println ("Test Failed !!!!! Taking Screenshot : " + result.getMethod().getMethodName());
-		Utililty.takeFailedTestScreenShot(result.getMethod().getMethodName());
+		Utility.takeFailedTestScreenShot(result.getMethod().getMethodName());
 	}
 
 	public void onTestSkipped(ITestResult result) {

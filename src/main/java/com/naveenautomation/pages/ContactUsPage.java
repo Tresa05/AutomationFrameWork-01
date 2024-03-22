@@ -1,11 +1,8 @@
 package com.naveenautomation.pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.naveenautomation.TestBase.TestBase;
 
@@ -29,7 +26,7 @@ public class ContactUsPage extends TestBase {
 	@FindBy(css = "input[value='Submit']")
 	WebElement submitBtn;
 
-	@FindBy(css = "div#content>p")
+	@FindBy(css = "h1")
 	WebElement contactUsSuccessAlert;
 
 	private void clickContactUs() {
@@ -49,14 +46,7 @@ public class ContactUsPage extends TestBase {
 		inputEnquiry.sendKeys(message);
 	}
 
-	public void waitForSubmitBtntobeVisible(WebDriver driver, int timeoutInSeconds) {
-		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
-		wait.until(ExpectedConditions.visibilityOf(submitBtn));
-	}
 
-	public void clicksubmit() {
-		submitBtn.click();
-	}
 
 	public String getContactUsSucessAlertText() {
 		return contactUsSuccessAlert.getText();
@@ -68,6 +58,9 @@ public class ContactUsPage extends TestBase {
 		enterEmail(email);
 		enterEnquiry(message);
 
+	}
+	public void clicksubmit() {
+		submitBtn.click();
 	}
 
 }
